@@ -1,0 +1,4 @@
+manage.py==0.2.10
+flask==0.12.2
+flask-security==3.0.0
+sqlalchemy-wrapper==1.8.0
