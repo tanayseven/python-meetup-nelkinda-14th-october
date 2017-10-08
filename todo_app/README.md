@@ -1,6 +1,26 @@
 To Do app in Python
 ===================
 
+This app is a sample To Do app developed for a Meetup at Nelkinda
+on the topic testing an untested Flask application.
+
+In addition to that this repository is designed to serve as a template
+for developing additional Flask applications with a proper setup of
+running all the scripts and for running the complete test suite.
+
+Description of the application
+------------------------------
+This application is split into two sub modules
+1. *User* deals with handling the user's login and registration activity
+2. *Todo* deals with the handling of all the todo lists and items
+
+The tests are split into four levels of tests:
+1. Unit tests
+2. Database tests
+3. Api tests
+4. Acceptance tests
+
+
 Steps to setup the application
 ------------------------------
 ```bash
