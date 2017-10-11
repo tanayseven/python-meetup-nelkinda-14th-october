@@ -1,13 +1,13 @@
-# /usr/bin/env python3
-
 from manager import Manager
+
+from todo_app.app import app
 
 manager = Manager()
 
 
 @manager.command
-def serve(host='0.0.0.0', port=5000):
-    pass
+def serve(host='0.0.0.0', port=5000, debug=False):
+    app.run(host, port, debug=debug)
 
 
 @manager.command
