@@ -1,5 +1,5 @@
 from todo_app.extensions import db
-from todo_app.user.models import AdminModel, UserModel
+from todo_app.user.models import AdminModel, UserModel, ListUserModel
 
 
 class UserRepo:
@@ -33,3 +33,12 @@ class AdminRepo:
     def fetch_user_for(cls, user_name, password):
         return cls.db.session.query(cls.model).join(UserModel) \
             .filter(UserModel.user_name == user_name).filter(UserModel.password == password).one_or_none()
+
+
+class ListUserRepo:
+    model = ListUserModel
+    db = db
+
+    @classmethod
+    def load_user_if_exists(cls, auth_token):
+        pass

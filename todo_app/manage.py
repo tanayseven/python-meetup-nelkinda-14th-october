@@ -5,9 +5,15 @@ from flask_script import Manager
 
 from todo_app.admin.views import register_admin
 from todo_app.extensions import app
+from todo_app.list.models import ItemModel
+from todo_app.user.models import ListUserModel, AdminModel
 
 register_admin(app)
 manager = Manager(app)
+
+AdminModel()
+ListUserModel()
+ItemModel()
 
 print("*** CURRENT ENVIRONMENT: " + os.environ['TODO_APP'] + " ***")
 
