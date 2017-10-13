@@ -1,3 +1,5 @@
+from sqlalchemy import and_
+
 from todo_app.user.model import AdminModel, UserModel
 from todo_app.extensions import db
 
@@ -11,8 +13,8 @@ class UserRepo:
         new_user = cls.model()
         new_user.user_name = user_name
         new_user.password = password
-        cls.db.add(new_user)
-        cls.db.commit()
+        cls.db.session.add(new_user)
+        cls.db.session.commit()
         return new_user
 
 
@@ -26,5 +28,10 @@ class AdminRepo:
         new_admin = cls.model()
         new_admin.user = new_user
         new_admin.email = email
-        cls.db.add(new_admin)
-        cls.db.commit()
+        cls.db.session.add(new_admin)
+        cls.db.session.commit()
+
+    @classmethod
+    def fetch_user_for(cls, user_name, password):
+        return cls.db.session.query(cls.model).join(UserModel) \
+            .filter(UserModel.user_name == user_name).filter(UserModel.password == password).one_or_none()

@@ -33,9 +33,8 @@
       <div class="container">
         <div class="form-outer text-center d-flex align-items-center">
           <div class="form-inner">
-            <div class="logo text-uppercase"><span>Dash</span><strong class="text-primary">Express</strong></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-            <form id="register-form">
+            <div class="logo text-uppercase"><span>ToDo</span><strong class="text-primary">Admin Registration</strong></div>
+            <form id="register-form" method="post" action="/admin/user/register/">
               <div class="form-group">
                 <label for="register-username" class="label-custom">User Name</label>
                 <input id="register-username" type="text" name="registerUsername" required>
@@ -47,10 +46,6 @@
               <div class="form-group">
                 <label for="register-passowrd" class="label-custom">password        </label>
                 <input id="register-passowrd" type="password" name="registerPassword" required>
-              </div>
-              <div class="terms-conditions d-flex justify-content-center">
-                <input id="license" type="checkbox" class="form-control-custom">
-                <label for="license">Agree the terms and policy</label>
               </div>
               <input id="register" type="submit" value="Register" class="btn btn-primary">
             </form><small>Already have an account? </small><a href="login.html" class="signup">Login</a>
