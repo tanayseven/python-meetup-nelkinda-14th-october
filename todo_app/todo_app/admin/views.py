@@ -2,7 +2,7 @@ from flask import render_template, request, redirect
 from flask_admin import Admin, expose, BaseView
 
 from todo_app.extensions import signer
-from todo_app.user.repo import AdminRepo
+from todo_app.user.repos import AdminRepo
 
 
 class LoginView(BaseView):

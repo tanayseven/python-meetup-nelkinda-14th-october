@@ -1,7 +1,5 @@
-from sqlalchemy import and_
-
-from todo_app.user.model import AdminModel, UserModel
 from todo_app.extensions import db
+from todo_app.user.models import AdminModel, UserModel
 
 
 class UserRepo:
