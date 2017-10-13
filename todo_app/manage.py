@@ -1,8 +1,15 @@
-from manager import Manager
+import os
 
-from todo_app.app import app
+from flask_migrate import MigrateCommand
+from flask_script import Manager
 
-manager = Manager()
+from todo_app.admin.views import register_admin
+from todo_app.extensions import app
+
+register_admin(app)
+manager = Manager(app)
+
+print("*** CURRENT ENVIRONMENT: " + os.environ['TODO_APP'] + " ***")
 
 
 @manager.command
@@ -15,5 +22,7 @@ def test():
     pass
 
 
+manager.add_command('db', MigrateCommand)
+
 if __name__ == '__main__':
-    manager.main()
+    manager.run()
