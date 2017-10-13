@@ -1,3 +1,4 @@
+from flask import render_template
 from flask_admin import Admin, expose, BaseView
 
 
@@ -5,6 +6,10 @@ class LoginView(BaseView):
     @expose('/', methods=('GET', 'POST',))
     def index(self):
         return 'tototo'
+
+    @expose('register/', methods=('GET', 'POST',))
+    def register(self):
+        return render_template('register.html')
 
 
 def register_admin(app):
