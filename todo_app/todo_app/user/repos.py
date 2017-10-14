@@ -41,4 +41,19 @@ class ListUserRepo:
 
     @classmethod
     def load_user_if_exists(cls, auth_token):
-        pass
+        id = int(auth_token.split('.')[0])
+        return cls.db.session.query(cls.model).join(UserModel) \
+            .filter(ListUserModel.id == id).one_or_none()
+
+    @classmethod
+    def add_new_user(cls, user_name, password, email, first_name, last_name):
+        new_user = UserRepo.add_new_user(user_name, password)
+        new_list_user = cls.model()
+        new_list_user.user = new_user
+        new_list_user.email = email
+        new_list_user.first_name = first_name
+        new_list_user.last_name = last_name
+        cls.db.session.add(new_list_user)
+        cls.db.session.commit()
+
+
