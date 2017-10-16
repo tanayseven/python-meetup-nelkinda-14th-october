@@ -56,4 +56,10 @@ class ListUserRepo:
         cls.db.session.add(new_list_user)
         cls.db.session.commit()
 
+    @classmethod
+    def load_user_with_credentials(cls, user_name, password):
+        return cls.db.session.query(cls.model).join(UserModel) \
+            .filter(UserModel.user_name == user_name)\
+            .filter(UserModel.password == password).one_or_none()
+
 

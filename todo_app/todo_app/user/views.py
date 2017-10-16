@@ -1,11 +1,12 @@
 from flask import Blueprint, request, jsonify
 
 from todo_app.user.repos import ListUserRepo
+from todo_app.extensions import app
 
 user_endpoints = Blueprint('user', __name__, url_prefix='/user')
 
 
-@user_endpoints.route('/register', methods=('POST',))
+@user_endpoints.route('/register/', methods=('POST',))
 def register_user():
     try:
         ListUserRepo.add_new_user(
@@ -29,4 +30,4 @@ def login_user():
 def all_todo_lists():
     return jsonify(dict(todo_lists=[]))
 
-
+app.register_blueprint(user_endpoints)

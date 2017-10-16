@@ -17,7 +17,6 @@ print("*** CURRENT ENVIRONMENT: " + os.environ['TODO_APP'] + " ***")
 def something():
     return "Something is working"
 
-app.register_blueprint(user_endpoints)
 
 @manager.command
 def serve(host='0.0.0.0', port=5000, debug=False):
